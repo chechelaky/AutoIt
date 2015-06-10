@@ -1,7 +1,3 @@
-Local $iSec = "1:30"
-$iSec = Hour2Sec($iSec)
-ConsoleWrite("$iSec[" & $iSec & "]" & @LF)
-
 ; #FUNCTION# ====================================================================================================================
 ; Name...........: Hour2Sec
 ; Description ...: Convert a string with hour data in seconds hh[ :mm[ :ss]]
