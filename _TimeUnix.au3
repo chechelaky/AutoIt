@@ -7,7 +7,7 @@
 ;				   $iMode
 ; Return values .:
 ; Author ........: Luismar Chechelaky
-; Modified.......:
+; Modified.......: 2015/06/10
 ; Remarks .......:
 ; Related .......:
 ; Link ..........:
