@@ -1,3 +1,6 @@
+#include-once
+#include <Date.au3>
+
 ; #FUNCTION# ====================================================================================================================
 ; Name...........: _TimeUnix
 ; Description ...: Convert a StringTime to UnixTime and UnixTime to StringTime
