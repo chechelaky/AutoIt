@@ -52,7 +52,7 @@ EndFunc   ;==>NewGui
 ; Modified.......:	2015/06/20 11:25
 ; Remarks .......:
 ; Related .......:
-; Link ..........:	https://github.com/chechelaky/AutoIt/blob/master/GuiCreateEx/GuiCreateEx.au3
+; Link ..........:	https://github.com/chechelaky/AutoIt/raw/master/GuiCreateEx/GuiCreateEx.au3
 ; Example .......:
 ; ===============================================================================================================================
 Func GUICreateEx($sTitle = "", $iWidth = 460, $iHeight = 360, $iLeft = -1, $iTop = -1, $mStyle = Default, $mExStyle = Default, $iParent = 0)
@@ -74,7 +74,7 @@ EndFunc   ;==>GUICreateEx
 ; Name...........:	_GUICreateEx_OnExit
 ; Author ........:	Luismar Chechelaky
 ; Modified.......:	2015/06/20 11:25
-; Link ..........:	https://github.com/chechelaky/AutoIt/blob/master/GuiCreateEx/GuiCreateEx.au3
+; Link ..........:	https://github.com/chechelaky/AutoIt/raw/master/GuiCreateEx/GuiCreateEx.au3
 ; ===============================================================================================================================
 Func _GUICreateEx_OnExit()
 	GUISetState($g__aGuiCreateEx[1], @SW_HIDE)
@@ -85,7 +85,7 @@ EndFunc   ;==>_GUICreateEx_OnExit
 ; Name...........:	_GUICreateEx_Quit
 ; Author ........:	Luismar Chechelaky
 ; Modified.......:	2015/06/20 11:25
-; Link ..........:	https://github.com/chechelaky/AutoIt/blob/master/GuiCreateEx/GuiCreateEx.au3
+; Link ..........:	https://github.com/chechelaky/AutoIt/raw/master/GuiCreateEx/GuiCreateEx.au3
 ; ===============================================================================================================================
 Func _GUICreateEx_Quit()
 	Local $hGui
