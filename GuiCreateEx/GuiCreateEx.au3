@@ -73,10 +73,11 @@ EndFunc   ;==>GUICreateEx
 ; #INTERNAL_USE_ONLY# ===========================================================================================================
 ; Name...........:	_GUICreateEx_OnExit
 ; Author ........:	Luismar Chechelaky
-; Modified.......:	2015/06/20 11:25
+; Modified.......:	2015/06/21 10:20
 ; Link ..........:	https://github.com/chechelaky/AutoIt/raw/master/GuiCreateEx/GuiCreateEx.au3
 ; ===============================================================================================================================
 Func _GUICreateEx_OnExit()
+	If UBound($g__aGuiCreateEx, 1) = 1 Then Return
 	GUISetState($g__aGuiCreateEx[1], @SW_HIDE)
 	GUIDelete($g__aGuiCreateEx[1])
 EndFunc   ;==>_GUICreateEx_OnExit
