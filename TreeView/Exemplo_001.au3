@@ -10,9 +10,9 @@
 #include <SQLite.au3>
 #include <SQLite.dll.au3>
 
-#include <GUICreateEx.au3>
-#include <JSMN.au3>
-#include <object_dump.au3>
+#include <GUICreateEx.au3> ; https://github.com/chechelaky/AutoIt/blob/master/GuiCreateEx/GuiCreateEx.au3
+#include <JSMN.au3> ; https://github.com/chechelaky/AutoIt/blob/master/JSMN.au3
+#include <object_dump.au3> ; https://github.com/chechelaky/AutoIt/blob/master/object_dump.au3
 
 #cs
 	Exemplo de uso com TreeView
