@@ -9,30 +9,31 @@ Opt("GUIEventOptions", 1)
 Opt("MustDeclareVars", 1)
 
 Global $g__aGuiCreateEx[1] = [0]
+Global $g__bShortCut_Key = False, $g__sShortCut_Function = ""
 
 #cs
-; Example
-#include-once
-#include <GuiCreateEx.au3>
+	; Example
+	#include-once
+	#include <GuiCreateEx.au3>
 
-Global $hGui
-Global $hButton_NewGui
+	Global $hGui
+	Global $hButton_NewGui
 
-$hGui = GUICreateEx("Título[ " & $g__aGuiCreateEx[0] & " ]", 800, 600)
-$hButton_NewGui = GUICtrlCreateButton("new gui", 10, 10, 80, 20)
-GUICtrlSetOnEvent($hButton_NewGui, "NewGui")
-GUISetState(@SW_SHOW, $hGui)
+	$hGui = GUICreateEx("Título[ " & $g__aGuiCreateEx[0] & " ]", 800, 600)
+	$hButton_NewGui = GUICtrlCreateButton("new gui", 10, 10, 80, 20)
+	GUICtrlSetOnEvent($hButton_NewGui, "NewGui")
+	GUISetState(@SW_SHOW, $hGui)
 
-While Sleep(25)
-WEnd
+	While Sleep(25)
+	WEnd
 
-Func NewGui()
+	Func NewGui()
 	Local $aSize = WinGetPos($g__aGuiCreateEx[UBound($g__aGuiCreateEx, 1) - 1])
 	Local $hGui = GUICreateEx("Título[ " & $g__aGuiCreateEx[0] & " ]", $aSize[2] - (20 + 6), $aSize[3] - (40 + 5), $aSize[0] + 10, $aSize[1] + 10, Default, Default, $g__aGuiCreateEx[UBound($g__aGuiCreateEx, 1) - 1])
 	$hButton_NewGui = GUICtrlCreateButton("new gui", 10, 10, 80, 20)
 	GUICtrlSetOnEvent($hButton_NewGui, "NewGui")
 	GUISetState(@SW_SHOW, $hGui)
-EndFunc   ;==>NewGui
+	EndFunc   ;==>NewGui
 #ce
 
 ; #FUNCTION# ====================================================================================================================
@@ -90,15 +91,30 @@ EndFunc   ;==>_GUICreateEx_OnExit
 ; ===============================================================================================================================
 Func _GUICreateEx_Quit()
 	Local $hGui
-	Switch $g__aGuiCreateEx[0]
-		Case 1
-			$hGui = $g__aGuiCreateEx[$g__aGuiCreateEx[0]]
-			Exit
-		Case Else
-			GUISetState(@SW_ENABLE, $g__aGuiCreateEx[$g__aGuiCreateEx[0] - 1])
-			GUISetState($g__aGuiCreateEx[$g__aGuiCreateEx[0]], @SW_HIDE)
-			GUIDelete($g__aGuiCreateEx[$g__aGuiCreateEx[0]])
-			_ArrayDelete($g__aGuiCreateEx, UBound($g__aGuiCreateEx, 1) - 1)
-			$g__aGuiCreateEx[0] = UBound($g__aGuiCreateEx, 1) - 1
-	EndSwitch
+	If Eval($g__bShortCut_Key) Then
+		Call($g__sShortCut_Function)
+	Else
+		Switch $g__aGuiCreateEx[0]
+			Case 1
+				$hGui = $g__aGuiCreateEx[$g__aGuiCreateEx[0]]
+				Exit
+			Case Else
+				GUISetState(@SW_ENABLE, $g__aGuiCreateEx[$g__aGuiCreateEx[0] - 1])
+				GUISetState($g__aGuiCreateEx[$g__aGuiCreateEx[0]], @SW_HIDE)
+				GUIDelete($g__aGuiCreateEx[$g__aGuiCreateEx[0]])
+				_ArrayDelete($g__aGuiCreateEx, UBound($g__aGuiCreateEx, 1) - 1)
+				$g__aGuiCreateEx[0] = UBound($g__aGuiCreateEx, 1) - 1
+		EndSwitch
+	EndIf
 EndFunc   ;==>_GUICreateEx_Quit
+
+; #INTERNAL_USE_ONLY# ===========================================================================================================
+; Name...........:	_GUICreateEx_SetShortCut
+; Author ........:	Luismar Chechelaky
+; Modified.......:	2016/08/21 07:30
+; Link ..........:	https://github.com/chechelaky/AutoIt/raw/master/GuiCreateEx/GuiCreateEx.au3
+; ===============================================================================================================================
+Func _GUICreateEx_SetShortCut($sKey, $sFunction)
+	$g__bShortCut_Key = $sKey
+	$g__sShortCut_Function = $sFunction
+EndFunc   ;==>_GUICreateEx_SetShortCut
