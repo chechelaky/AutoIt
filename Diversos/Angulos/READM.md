@@ -1,4 +1,4 @@
-# Angulos
-![Alt text](angulos.png?raw=true "Angulos")
+# Ângulos
+![Alt text](angulos.png?raw=true "Ângulos")
 
-Demonstração gráfica dos angulos em um sistema trigonométrico.
+Demonstração gráfica dos ângulos em um sistema trigonométrico.
