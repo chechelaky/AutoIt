@@ -10,7 +10,7 @@
 ; Name ..........: Angulos
 ; Description ...: Um script que demonstra visualmente onde como é representado os componentes de um ângulo (sen, cos, tan...)
 ; Author ........: Luigi (Luismar Chechelaky)
-; Link ..........:
+; Link ..........: https://github.com/chechelaky/AutoIt/blob/master/Diversos/Angulos.au3
 ; ===============================================================================================================================
 
 Global $hGui, $hMsg, $active = True
