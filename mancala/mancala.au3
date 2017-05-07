@@ -6,7 +6,11 @@
 ; Author ........: Luigi (Luismar Chechelaky)
 ; Description ...: adaptação do jogo de mancala para AutoIt
 ; Link ..........: https://github.com/chechelaky/AutoIt/blob/master/mancala/mancala.au3
-; webgrafia......: http://www.ludomania.com.br/Tradicionais/mancala.html
+; webgrafia......: https://pt.wikipedia.org/wiki/Mancala
+;                  http://www.colegioglauciacosta.com.br/moodle/file.php/1/Regras_Awele_CLMasse.pdf
+;                  http://www.math.ku.dk/famos/.arkiv/22-1/kalaha.pdf
+;                  http://fritzdooley.com/mancala/4_computer-aided_game_strategy_reverse_induction.html
+; Todo...........: implementar a verificação do vencedor
 ; ===============================================================================================================================
 
 #include-once
