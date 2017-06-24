@@ -1,0 +1,132 @@
+; au3Irrlicht2 Changelog
+; ======================
+; this file is used to create history of help file. So it need to be well formated:
+; empty lines or lines with leading ';' are ignored
+; '=' in row1 defines header for release information (all '=' are removed for .html): 
+; = [release number] ([date info]) ===========
+; First found release info is also used to update the static introduction .html
+; lines with '>' in row start a header
+; lines with '+' in row start a list point in .html (with a bullet)
+; lines with '-' in row start an ignored list point (history details not interesting for normal users)
+; all following indented lines (starting in row >= 3) belong to the current .html or ignored list point
+; '[' and ']' can be used to set text to bold in .html
+  
+
+
+=== 2.04 (2010-10-09) ==========================================================
+
+
+
+> Script breaking changes:
+
++ _IrrAddSplineAnimator: Parameters changed to simplify usage (see examples)
++ _IrrGetNodePosition, _IrrGetNodeRotation, _IrrGetNodeAbsolutePosition,
+  _IrrGetCameraTarget: Removed required byRef array parameter
+  (see help file/adjusted examples for syntax)
+
+
+
+> UDFs:
+
++ Fixed/Added: Some more working functions (mainly around added examples)
++ Added: Some missing 2D functions and documentation (contributions from smashly)
++ Fixed: _IrrSetFog (linear and exponential fog were interchanged)
++ Fixed: _IrrCreateMesh ($s_MeshName not being passed in the DLL call)
+- Fixed: wrong return type in _IrrWriteMesh - "ptr:cdecl" is now "int:cdecl"
+  Also reworked returned error codes
+- _IrrSetZoneManagerBoundingBox, _IrrSetZoneManagerProperties:
+  changed "ptr:cdecl" to "none:cdecl" as this dllcall doesn't offer a return.
+- _IrrSetSkyDomeColor, _IrrSetSkyDomeColorBand, _IrrSetSkyDomeColorPoint, _IrrAnimateJoints: 
+  changed "ptr:cdecl" to "none:cdecl" as this dllcall doesn't offer a return by call.
+  These dll calls outputs printf errors straight to console.
++ Fixed: _IrrGetScreenCoordinatesFrom3DPosition (did not return anything useable because of wrong dllCall)
+
+
+
+> Examples:
+
++ Added: 015 (CustomMesh), 022 (Indices+Vertices), 024 (Mesh to file), 062 (6D0F_Camera)
++ Added: (contribution from smashly): 039 (Texture blending), 070 (Texture_and_Images), 103 (Billboard Groups), 104 (LOD)
++ Added: 007/025/027/066/067/068/069/074/075 (ParticleSystem)
++ Reworked: 011 (Animators) shows usage of changed _IrrAddSplineAnimator
++ Fixed: 010 (TerrainAndFog) / 029/054 (Skydomes)
+- 010: Corrected parameters and wrong documentation of _IrrSetFog. 029/054: renamed 
+  skydome.jpg to 'skydome2.jpg' and restored original texture needed for example 054.
+
+
+
+> Help file:
+
++ Added: Completed documentation including example code for some more functions.
+  Current status: Topics completed along examples 1-16 + several more.
+  At least naked reference w/o detailed informations for all functions inside other examples.
+- Changed: Reworked several help file descriptions and examples.
++ Added: 'Copy to clipboard'-button for included examples (using VBS code from GEOSoft)
+
+
+
+> Internal tools:
+
+- Fixed: help_tool.au3 - added functions in UDFs w/o info block were not updated correctly.
++ Fixed: Examples could not be opened when running launcher from path with spaces
++ Added: Setup feature to example launcher to merge au3Irr2 help into local au3 help 
+  and add/update calltips for SciTe
+- calltip file and merged autoIt.chm are compiled into exampleLauncher.exe, so removed from root dir
++ Excluded \internal_tools because not too interesting for 99.9% (for the 0.1%: available via the 
+  sources from project page)
+
+
+> Other:
++ Changed: global $result used in UDF files switched to local variables (WIP, finished for 2D, Scene, 
+  Camera, Animation, Node)
+
+
+=== 2.03 (2010-09-05) ==========================================================
+
+> UDF:
+
++ Changed: Splitted UDF per category into \include. Main UDF (and the only one which is
+  needed to be included) is still au3Irrlicht2.au3
++ Changed: All used dll files are moved to \bin to clean up the root dir.
+  _IrrStart is modified to find them anyway.
++ Fixed: _IrrSetNodeVisibility
+
+> Examples:
+
++ Added: 089 (Orthogonal Camera), 106 (Advanced start)
++ Changed: 029 (Skydome)
++ Fixed: 049 (Loaded_Scene_Collision), 051 (Clouds)
+
+> Help file:
+
++ Added: First version as reference of all working + proven functions. Current status:
+  Topics completed including example code along examples 1 to 6.
+  Naked reference w/o detailed informations for other examples.
++ Changed: Moved original freeBasic Wrapper docs from \FB_documentation to 
+  \internal_tools\buildHelp\html_static. It's now included into help file.
++ Added: Merged help to use the au3Irr2 help inside the au3 help.
+
+> Internal tools:
+
++ Added: helper scripts and files for building help file and au3.user.calltips.api
+  (see [\internal tools\help_building_readme.txt]) 
+
+
+> Other:
++ Fixed: \media\fonthaettenschweiler.bmp ([bogQ])
++ Added: msvcr71.dll - possibly missing on some machines ([jl])
+
+
+
+=== 2.02 (2010-07-29) ==========================================================
+First release in one package (updated UDF + all needed .dll's, more examples, ExampleLauncher)
+
+
+
+=== 2.01 (2010-07-20) ==========================================================
+Updated UDF with fixes, additions and separate example package
+
+
+
+=== 2.00 (2010-05-03) ===========================================================
+First release of jRowe

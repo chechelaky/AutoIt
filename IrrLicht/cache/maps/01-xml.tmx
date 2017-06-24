@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="8" height="8" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="dirt" tilewidth="32" tileheight="32">
+  <image source="Y:/Tile2/source/_static/demogame/levels/dirt.png" width="96" height="192"/>
+ </tileset>
+ <layer name="Camada de Tiles 1" width="8" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYmBgYMKDmQlgFgJYkAAeSCAExACH6ADj
+  </data>
+ </layer>
+</map>
