@@ -1,0 +1,35 @@
+{
+	"level": "maps\/001.json",
+	"actor": [
+	{
+		"name": "vermelho",
+		"hp_max": "200",
+		"hp_current": "190",
+		"speed": 2,
+		"image": "vermelho.png",
+		"gold": 2,
+		"xp": 2,
+		"sound_hit": "crunch.wav",
+		"sound_death": "impacto.mp3",
+		"sound_born": "impacto.wav"
+	}
+  ],
+	"orda": [{
+		"actor": 1,
+		"amount": 10
+	}],
+	"tower": [{
+		"name": "tower 1",
+		"atack_speed": [2,
+		2.5,
+		3],
+		"damage": [1,
+		1.2,
+		1.45],
+		"sound": 30,
+		"cost": 10,
+		"sold": 3
+	}],
+	"sounds": [],
+	"images": []
+}
