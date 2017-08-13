@@ -3,10 +3,11 @@
 #include <AutoItConstants.au3>
 
 ; #UDF# ========================================================================================================================
-; Name...........:	DirGetFiles
-; Description ...:  procura todos os arquivos .au3 recursivamente em um diretório e executa um TIDY com a opção /dg em cada arquivo
-; Author ........:	Luismar Chechelaky
-; Creation.......:	2017/08/13
+; Name...........: DirGetFiles
+; Description ...: procura todos os arquivos .au3 recursivamente em um diretório e executa um TIDY com a opção /dg em cada arquivo
+; Author ........: Luismar Chechelaky
+; Creation.......: 2017/08/13
+; Source.........: https://github.com/chechelaky/AutoIt/blob/master/Diversos/RecursiveTidy.au3
 ; ===============================================================================================================================
 
 Global $sFolder = FileSelectFolder("Escolha a pasta", @ScriptDir, $FSF_CREATEBUTTON, @ScriptDir)
@@ -26,13 +27,13 @@ EndIf
 
 ; #FUNCTION# ====================================================================================================================
 ; Version........:  0.0.0.1
-; Name...........:	DirGetFiles
+; Name...........: DirGetFiles
 ; Description ...:
 ; Syntax.........:
 ; Parameters ....:
 ; Return values .:
-; Author ........:	Luismar Chechelaky
-; Creation.......:	2017/08/13
+; Author ........: Luismar Chechelaky
+; Creation.......: 2017/08/13
 ; Modified.......:
 ; Remarks .......:
 ; Related .......:
