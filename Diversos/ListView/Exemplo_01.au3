@@ -1,6 +1,13 @@
 ;~ #AutoIt3Wrapper_AU3Check_Parameters= -q -d -w 1 -w 2 -w 3 -w- 4 -w 5 -w 6 -w- 7
 ;~ #Tidy_Parameters=/sf
 
+; #SCRIPT#== ====================================================================================================================
+; Description ...: Exemplo de movimentação de um item entre duas ListView
+; Author ........: Luigi (Luismar Chechelaky)
+; Link ..........: https://github.com/chechelaky/AutoIt/edit/master/Diversos/ListView/Exemplo_01.au3
+; AutoIt version.: 3.3.12.0
+; ===============================================================================================================================
+
 #include-once
 #include <Array.au3>
 #include <GUIConstantsEx.au3>
