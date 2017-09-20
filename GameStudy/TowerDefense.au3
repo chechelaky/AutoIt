@@ -7,7 +7,7 @@
 ;                  Generate a GDI map from a JSON file created by 'Tile Map Editor'
 ; Author(s) .....: Luismar Chechelaky
 
-; https://github.com/chechelaky/AutoIt/tree/master/GameStudy
+; https://github.com/chechelaky/AutoIt/blob/master/GameStudy/TowerDefense.au3
 
 ; https://youtu.be/qo8Xt80bpXk
 
