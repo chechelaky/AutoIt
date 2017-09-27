@@ -3,6 +3,14 @@
 #include-once
 #include <BackEffect.au3>
 
+; #INDEX# =======================================================================================================================
+; Title .........: BackEffect Example
+; AutoIt Version : 3.3.14.2
+; Description ...:
+; Source.........: https://github.com/chechelaky/AutoIt/edit/master/BackEffect/Example.au3
+; Author(s) .....: Luismar Chechelaky (Luigi)
+; ===============================================================================================================================
+
 OnAutoItExitRegister("OnExit")
 
 Opt("GUIOnEventMode", 1)
