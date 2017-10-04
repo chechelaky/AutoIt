@@ -1,4 +1,4 @@
-FRED
+<b>FRED</b></br>
 [F]ormato [R]ecursivo de [E]ncapsulamento de [D]ados
 
 Houve um tempo que eu procurava muito uma biblioteca para encapsular array e Scripting.Dictionary no AutoIt.
