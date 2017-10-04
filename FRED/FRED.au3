@@ -9,7 +9,7 @@
 ; Language ......: Português Br
 ; Description ...: codifica: array, Scripting.Dictionary, double, int32, int64, bool, string, Null, Default em uma cadeia de caracteres
 ; Authors .......: Luismar Chechelaky (Luigi)
-; Source.........: 
+; Source.........: https://github.com/chechelaky/AutoIt/blob/master/FRED/FRED.au3
 ; Version........: 0.0.0.2
 ; fixeds:
 ;                  30/06/2014 bug in empty code fixed
