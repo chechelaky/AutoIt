@@ -4,15 +4,16 @@
 
 ; FRED
 ; #INDEX# ==========================================================================================================================================================
-; Title .........: FRED 1.01
+; Title .........: FRED
 ; AutoIt Version : 3.3.10.2
 ; Language ......: Português Br
 ; Description ...: codifica: array, Scripting.Dictionary, double, int32, int64, bool, string, Null, Default em uma cadeia de caracteres
 ; Authors .......: Luismar Chechelaky (Luigi)
 ; Source.........: https://github.com/chechelaky/AutoIt/blob/master/FRED/FRED.au3
-; Version........: 0.0.0.2
+; Version........: 0.0.0.3
 ; fixeds:
 ;                  30/06/2014 bug in empty code fixed
+;                  04/10/2017 refactor
 ; ==================================================================================================================================================================
 
 ;~ example_01()
@@ -60,16 +61,16 @@
 ;~ 	_ArrayDisplay($decode, 'Ex. 5 decode array')
 ;~ EndFunc   ;==>example_05
 
-Func example_06()
-	Local $aTest1[2] = ['Violão', 'Argüição']
-	Local $aTest2[2][2] = [['um', $aTest1],['três', 'quatro']]
-	_ArrayDisplay($aTest2, 'Ex. 6')
-	Local $code = code($aTest2)
-	MsgBox(0, 'Example 06: code array[n][m]', '$code = ' & $code)
-	Local $decode = decode($code)
-	_ArrayDisplay($decode, 'Ex. 6 decode $aTeste2[n][m]')
-	_ArrayDisplay($decode[0][1], 'Ex. 6 decode $aTest1[n]')
-EndFunc   ;==>example_06
+;~ Func example_06()
+;~ 	Local $aTest1[2] = ['Violão', 'Argüição']
+;~ 	Local $aTest2[2][2] = [['um', $aTest1],['três', 'quatro']]
+;~ 	_ArrayDisplay($aTest2, 'Ex. 6')
+;~ 	Local $code = code($aTest2)
+;~ 	MsgBox(0, 'Example 06: code array[n][m]', '$code = ' & $code)
+;~ 	Local $decode = decode($code)
+;~ 	_ArrayDisplay($decode, 'Ex. 6 decode $aTeste2[n][m]')
+;~ 	_ArrayDisplay($decode[0][1], 'Ex. 6 decode $aTest1[n]')
+;~ EndFunc   ;==>example_06
 
 ;~ Func example_07()
 ;~ 	Local $aTest1[2] = ["Violão", "Argüição"]
@@ -635,7 +636,6 @@ Func code($VAR = '', $mode = 0)
 EndFunc   ;==>code
 
 Func __code($VAR)
-	; internal function
 ;~ 	ConsoleWrite('__code( ' & $VAR & ' )' & @LF)
 	Local $temp
 	$VAR = StringSplit($VAR, '', 2)
@@ -652,7 +652,6 @@ Func __code($VAR)
 EndFunc   ;==>__code
 
 Func __code_num($VAR)
-	; internal function
 	; PHP
 	If $VAR == '' Then Return SetError(1, 0, 0)
 	Local $aPos[4] = ['^', '~', '`', '´']
@@ -666,13 +665,11 @@ Func __code_num($VAR)
 EndFunc   ;==>__code_num
 
 Func __return__code_array($aDim, $VAR, $aTemp0)
-	; internal function
 	$VAR = 'a' & $aDim & '[' & _ArrayToString($aTemp0, ',', 1) & ']'
 	Return StringLen($VAR) & $VAR
 EndFunc   ;==>__return__code_array
 
 Func __decode($VAR)
-	; internal function
 	$VAR = StringSplit($VAR, '', 2)
 	Local $arr[4] = ['^', '~', '`', '´']
 	Local $return, $ignore, $pos
@@ -697,7 +694,6 @@ Func __decode($VAR)
 EndFunc   ;==>__decode
 
 Func __mount_array(ByRef $aMount, $VAR)
-	; internal function
 	Local $arr = _StringBetween($VAR, 'a', '[')
 	$arr = StringSplit($arr[0], '*', 2)
 	Switch UBound($arr)
@@ -727,7 +723,6 @@ Func __mount_array(ByRef $aMount, $VAR)
 EndFunc   ;==>__mount_array
 
 Func __clean_var(ByRef $VAR, $type = 0)
-	; internal function, VOID
 	; PHP
 	Local $tag = ($type == 0 ? '[' : '{')
 	Local $first = StringInStr($VAR, $tag)
@@ -736,7 +731,6 @@ Func __clean_var(ByRef $VAR, $type = 0)
 EndFunc   ;==>__clean_var
 
 Func __lenght($input)
-	; internal function
 	; PHP
 	Local $iLenght = 0
 	While StringRegExp(StringMid($input, $iLenght + 1, 1), '[0-9]')
@@ -746,7 +740,6 @@ Func __lenght($input)
 EndFunc   ;==>__lenght
 
 Func __mount_next_cell(ByRef $VAR)
-	; internal function
 	While Not StringRegExp(StringMid($VAR, 1, 1), '[0-9]')
 		$VAR = StringTrimLeft($VAR, 1)
 	WEnd
@@ -760,4 +753,3 @@ Func __mount_next_cell(ByRef $VAR)
 	WEnd
 	Return decode($cell)
 EndFunc   ;==>__mount_next_cell
-
