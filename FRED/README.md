@@ -8,3 +8,7 @@ Algum tempo depois encontrei o JSMN que trabalha com JSON, e é mais completa do
 Porém o FRED é muito rápido, mais enxuta que o JSMN.
 
 Pode ser que sirva para você.
+
+https://www.autoitscript.com/forum/topic/160365-fred-format-recursive-encapsulation-data/
+
+http://forum.autoitbrasil.com/index.php?/topic/1303-fred-formato-recursivo-de-encapsulamento-de-dados/
