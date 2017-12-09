@@ -10,7 +10,7 @@
 ; Modified.......:
 ; Remarks .......:
 ; Related .......:
-; Link ..........:
+; Link ..........: https://github.com/chechelaky/AutoIt/blob/master/Diversos/DirGetFiles.au3
 ; Example .......:
 ; ===============================================================================================================================
 Func DirGetFiles(ByRef $arr, $sFolder = "", $type = "*.*", $recursive = True, $self = True)
