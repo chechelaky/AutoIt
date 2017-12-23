@@ -14,7 +14,7 @@
 ; Example .......: https://github.com/chechelaky/AutoIt/blob/master/Diversos/Mask/Real_Exemplo.au3
 ; ===============================================================================================================================
 
-Func Real($num = "")
+Func Real($number = "")
 	If $number == "" Then Return ""
 	If $number == "." Then Return "0."
 	$number = StringRegExpReplace(StringReplace($number, ",", "."), "[^0-9.]", "")
