@@ -10,7 +10,7 @@
 ; Modified.......:
 ; Remarks .......:
 ; Related .......:
-; Link ..........: https://github.com/chechelaky/AutoIt/blob/master/Diversos/DirGetFiles.au3
+; Link ..........: https://github.com/chechelaky/AutoIt/blob/master/Diversos/Mask/Real.au3
 ; Example .......:
 ; ===============================================================================================================================
 
