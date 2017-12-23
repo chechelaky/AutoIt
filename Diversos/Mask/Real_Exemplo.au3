@@ -1,4 +1,18 @@
-
+; #FUNCTION# ====================================================================================================================
+; Version........: 0.0.0.1
+; Name...........: Mask/Real_Exemplo
+; Description ...: Exemplo de uso de Mask/Real
+; Syntax.........:
+; Parameters ....:
+; Return values .:
+; Author ........: Luismar Chechelaky
+; Creation.......: 2017/12/23
+; Modified.......:
+; Remarks .......:
+; Related .......:
+; Link ..........: https://github.com/chechelaky/AutoIt/blob/master/Diversos/Mask/Real_Exemplo.au3
+; Example .......:
+; ===============================================================================================================================
 
 ;~ https://www.autoitscript.com/forum/topic/54909-detecting-when-guictrlinput-change-it-value/
 ;~ https://www.autoitscript.com/autoit3/scite/docs/SciTE4AutoIt3/Tidy.html
@@ -8,6 +22,7 @@
 #include <GuiEdit.au3>
 #include <GuiStatusBar.au3>
 #include <WinAPI.au3>
+#include <Real.au3>
 
 Opt("MustDeclareVars", 1)
 
@@ -15,15 +30,6 @@ Global $iInput, $hInput
 Global $nao_usada
 
 _Example_Internal()
-
-Func Real($number = "")
-	If $number == "" Then Return ""
-	If $number == "." Then Return "0."
-	$number = StringRegExpReplace(StringReplace($number, ",", "."), "[^0-9.]", "")
-	Local $dot = StringInStr($number, ".")
-	If Not $dot Then Return $number
-	Return StringReplace(StringMid($number, 1, $dot - 1), ".", "") & "." & StringReplace(StringMid($number, $dot + 1), ".", "")
-EndFunc   ;==>Real
 
 Func _Example_Internal()
 	Local $hGUI
