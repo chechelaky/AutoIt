@@ -11,7 +11,7 @@
 ; Remarks .......:
 ; Related .......:
 ; Link ..........: https://github.com/chechelaky/AutoIt/blob/master/Diversos/Mask/Real.au3
-; Example .......:
+; Example .......: https://github.com/chechelaky/AutoIt/blob/master/Diversos/Mask/Real_Exemplo.au3
 ; ===============================================================================================================================
 
 Func Real($num = "")
