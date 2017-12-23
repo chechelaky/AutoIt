@@ -27,7 +27,6 @@
 Opt("MustDeclareVars", 1)
 
 Global $iInput, $hInput
-Global $nao_usada
 
 _Example_Internal()
 
