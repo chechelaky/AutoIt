@@ -2,6 +2,19 @@
 #include <Array.au3>
 #include <String.au3>
 
+; #FUNCTION# ====================================================================================================================
+; Name...........: _nome
+; Description ...: Imprime número, string com aspas e transforma em texto um array[n] ou array [n][m].
+; Syntax.........: Print()
+; Parameters ....: $input: número, texto, array 1D ou array 2D
+; Return values .: 
+; Author ........: Luigi (Luismar Chechelaky)
+; Modified.......: 2018 10 06
+; Remarks .......:
+; Link ..........: https://github.com/chechelaky/AutoIt/edit/master/Print/Print.au3
+; Example .......: No
+; AutoIt version.: 3.3.14.5
+; ===============================================================================================================================
 
 Func Print($input = Null)
 	If IsArray($input) Then
