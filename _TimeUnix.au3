@@ -1,18 +1,16 @@
 #include-once
 #include <Date.au3>
-#include <Array.au3>
 
 ; #FUNCTION# ====================================================================================================================
 ; Name...........: _TimeUnix
 ; Description ...: Convert a StringTime to UnixTime and UnixTime to StringTime
 ;				   All StringTime must be like this "yyyy/mm/dd hh:mm:ss"
 ; Syntax.........:
-; Parameters ....: $mInput
+; Parameters ....: $var
 ;				   $iMode
 ; Return values .:
 ; Author ........: Luismar Chechelaky
-; Create.........: 2015/06/10
-; Modified.......: 2018/05/20
+; Modified.......: 2018/010/07
 ; Remarks .......:
 ; Related .......:
 ; Link ..........:
@@ -35,36 +33,33 @@
 ;		Convert a UnixTime To StringTime in "dd/mm/yyyy hh:mm:ss"
 ;		Local $time = _TimeUnix(1433967837, 1)
 ;		$time = "10/06/2015 20:23:57"
+;
+;	exemple 5
+;~ 		Local $aFileGetTime = FileGetTime(@ScriptFullPath)
+;~ 		ConsoleWrite("$aFileGetTime[ " & _ArrayToString($aFileGetTime, ",") & " ]" & @LF)
+;~ 		Output: $aFileGetTime[ 2018,10,07,09,35,50 ]
+;~ 		Local $iUnixTime = _TimeUnix($aFileGetTime)
+;~ 		ConsoleWrite("$iUnixTime[" & $iUnixTime & "]" & @LF)
+;~ 		Output: $iUnixTime[ 1538904950 ]
+
 ; ===============================================================================================================================
-Func _TimeUnix($mInput = 0, $iMode = 0, $date_sep = "/")
+Func _TimeUnix($var = 0, $iMode = 0, $char = "/")
 	Local $sRet = 0
 	Local $sUnix = "1970/01/01 00:00:00"
-	If Not $mInput Then
-		; retorna a hora atual em UnixTime
-		$sRet = _DateDiff("s", $sUnix, _NowCalc())
+	If IsArray($var) Then
+		$sRet = _TimeUnix($var[0] & "/" & $var[1] & "/" & $var[2] & " " & $var[3] & ":"& $var[4] & ":"& $var[5])
 	Else
-		If String($mInput) == Number($mInput) Then
-			$sRet = _DateAdd("s", $mInput, $sUnix)
-			If $iMode Then $sRet = StringMid($sRet, 9, 2) & $date_sep & StringMid($sRet, 6, 2) & $date_sep & StringMid($sRet, 1, 4) & " " & StringMid($sRet, 12)
+		If $var = 0 Then
+			$sRet = _DateDiff("s", $sUnix, _NowCalc())
 		Else
-			__TimeUnixAutoSense($mInput)
-			$sRet = StringFormat("%014s", -_DateDiff("s", $mInput, $sUnix))
-			$sRet = -_DateDiff("s", $mInput, $sUnix)
+			If String($var) == Number($var) Then
+				$sRet = _DateAdd("s", $var, $sUnix)
+				If $iMode Then $sRet = StringMid($sRet, 9, 2) & $char & StringMid($sRet, 6, 2) & $char & StringMid($sRet, 1, 4) & " " & StringMid($sRet, 12)
+			Else
+				$sRet = StringFormat("%014s", -_DateDiff("s", $var, $sUnix))
+				$sRet = -_DateDiff("s", $var, $sUnix)
+			EndIf
 		EndIf
 	EndIf
 	Return $sRet
 EndFunc   ;==>_TimeUnix
-
-Func __TimeUnixAutoSense(ByRef $sTime)
-	Local $aPart = StringSplit($sTime, " ", 2)
-
-	Local $aDate = StringRegExpReplace($aPart[0], "[^0-9]", "/")
-	$aDate = StringSplit($aDate, "/", 2)
-	If StringLen($aDate[2]) > 2 Then _ArraySwap($aDate, 2, 0)
-	$aDate = _ArrayToString($aDate, "/")
-
-	Local $aTime = StringRegExpReplace($aPart[1], "[^0-9]", ":")
-	$aTime = StringSplit($aTime, ":", 2)
-	$aTime = _ArrayToString($aTime, ":", 0 , 2)
-	$sTime = $aDate & " " & $aTime
-EndFunc   ;==>__TimeUnixAutoSense
