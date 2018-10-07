@@ -13,7 +13,7 @@
 ; Modified.......: 2018/010/07
 ; Remarks .......:
 ; Related .......:
-; Link ..........:
+; Link ..........: https://github.com/chechelaky/AutoIt/blob/master/_TimeUnix.au3
 ; Example .......:
 ;	exemple 1
 ;		Local $now = _TimeUnix()
