@@ -45,3 +45,8 @@ Func _ArrayAdd2D(ByRef $aInput, $mOpt1 = Default, $mOpt2 = Default, $mOpt3 = Def
 		$aInput[$id][$ii - 1] = Execute("$mOpt" & $ii)
 	Next
 EndFunc   ;==>_ArrayAdd2D
+
+#CS
+	REGEX
+	http://www.ultrapico.com/ExpressoDownload.htm
+#CE
