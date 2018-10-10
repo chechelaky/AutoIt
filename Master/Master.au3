@@ -716,3 +716,8 @@ Func IniSet(ByRef $arr, $key, $new_value)
 	$arr[$iSearch][1] = $new_value
 	Return True
 EndFunc   ;==>IniSet
+
+#CS
+	REGEX
+	http://www.ultrapico.com/ExpressoDownload.htm
+#CE
